@@ -98,13 +98,7 @@ jobs:
               "value": "${{ env.AZURE_WEBAPP_NAME }}.azurewebsites.net"
               }
             ]
-          secrets: |
-            [
-               {
-                "name": "appToken",
-                "value": "${{ secrets.MY_SECRET }}"
-               }
-            ]
+
     # publish artifacts  
       - uses: actions/upload-artifact@v2
         with:
