@@ -6,6 +6,4 @@ engineInstances: 1
 failureCriteria:
   - avg(response_time_ms) > 5000
   - percentage(error) > 20
-secrets:
-  - name: appToken
-    value: https://nikita-sampleapp.vault.azure.net/secrets/defaultSecret
+
