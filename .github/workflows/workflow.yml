@@ -65,7 +65,7 @@ jobs:
               }
             ]
 
-    # publish artifacts  
+    # publish artifacts for the second time
       - uses: actions/upload-artifact@v2
         with:
           name: loadTestResults
