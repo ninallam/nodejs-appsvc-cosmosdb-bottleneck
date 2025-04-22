@@ -1,11 +1,7 @@
 name: Sample App deploy
 
 # Controls when the workflow will run
-on:
-  push:
-      branches:
-        - main
-
+on: workflow_dispatch
 env:
   AZURE_WEBAPP_NAME: "new-contoso-app"    # set this to your application's name
   AZURE_WEBAPP_PACKAGE_PATH: '.'      # set this to the path to your web app project, defaults to the repository root
@@ -26,11 +22,12 @@ jobs:
       - name: Checkout GitHub Actions 
         uses: actions/checkout@v2
         
-      - name: Login to Azure
-        uses: azure/login@v1
-        continue-on-error: false
+      - name: Azure login
+        uses: azure/login@v2
         with:
-          creds: ${{ secrets.AZURE_CREDENTIALS }}
+          client-id: ${{ secrets.AZURE_CLIENT_ID }}
+          tenant-id: ${{ secrets.AZURE_TENANT_ID }}
+          subscription-id: ${{ secrets.AZURE_SUBSCRIPTION_ID }}
           
     # Deploy Arm template
       - name: Deploy ARM Template
